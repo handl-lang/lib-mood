@@ -1,6 +1,15 @@
 # lib-mood
 
-mood — mood (mode-of-data) operations. Handl stdlib port (ADR-0128 split); moved from `kernel/crates/mood`.
+`mood` — mood (mode-of-data) operations; the Rust crate embedding `src/index.hnl`.
+
+## Development
+
+```bash
+cargo xtask gate        # fmt --check → clippy -D warnings → test → doc
+```
+
+`cargo xtask` wraps the repo's `xtask/` crate (`fmt`, `clippy`, `test`, `doc`,
+`check`, `gate`).
 
 ## License
 

@@ -5,6 +5,8 @@ edition = "2024"
 description = "mood: Handl stdlib port (ADR-0128 split)."
 license = "MIT"
 repository = "https://github.com/handl-lang/lib-mood"
+homepage = "https://github.com/handl-lang/lib-mood"
+readme = "README.md"
 
 [dependencies]
 handl-lib-ops = { git = "https://github.com/handl-lang/kernel", branch = "main" }
