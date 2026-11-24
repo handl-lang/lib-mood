@@ -1,0 +1,12 @@
+-- lib-mood: the `mood` module — mood (mode-of-data) operations for
+-- the handl runtime. Transitional layout: the interface is
+-- `src/index.hnl` (cap/op declarations); implementations are native
+-- Rust handls in `plugin-lib-utils`.
+{
+  modules: ["mood"],
+  name: "mood",
+  description: "Mood (mode-of-data) operations — ind/int/norm/pot/neg/cnd projection, intersection, normalization and fallback.",
+  license: "MIT",
+  keywords: ["mood", "mode-of-data", "projection", "stdlib", "handl"],
+  homepage: "https://github.com/handl-lang/lib-mood",
+}
