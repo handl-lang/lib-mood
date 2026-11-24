@@ -1,0 +1,31 @@
+# lib-mood atom spec (P-013/T-151) — Mood (three-valued logic) ops — native impls in the lib-mood crate (`mood_op_registry`); impl keys are the `handle ... with` hints (rust_ prefix dropped).
+# `sig` = handl signature (~> canonical), `impl` = key for the
+# module's impl table, `total` replaces `guarantee: True` decl
+# clauses. Generated from the cap/op/handle triples in
+# src/index.hnl.
+module: mood
+atoms:
+  - name: mood.ind
+    sig: "(Value * Value) ~> Value"
+    impl: mood_ind
+    total: true
+  - name: mood.int
+    sig: "(Value * Value) ~> Bool"
+    impl: mood_int
+    total: true
+  - name: mood.norm
+    sig: "(Value * Value) ~> Value"
+    impl: mood_norm
+    total: true
+  - name: mood.pot
+    sig: "(Value * Value) ~> Value"
+    impl: mood_pot
+    total: true
+  - name: mood.neg
+    sig: "(Value * Value) ~> Value"
+    impl: mood_neg
+    total: true
+  - name: mood.cnd
+    sig: "(Value * Value * Value) ~> Value"
+    impl: mood_cnd
+    total: true
