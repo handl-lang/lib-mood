@@ -28,17 +28,17 @@ cap "mood.norm"
 cap "mood.pot"
 cap "mood.neg"
 cap "mood.cnd"
-op "mood.ind" : (Value * Value) -> Value
+op "mood.ind" : (Value * Value) ~> Value
   guarantee: True
-op "mood.int" : (Value * Value) -> Bool
+op "mood.int" : (Value * Value) ~> Bool
   guarantee: True
-op "mood.norm" : (Value * Value) -> Value
+op "mood.norm" : (Value * Value) ~> Value
   guarantee: True
-op "mood.pot" : (Value * Value) -> Value
+op "mood.pot" : (Value * Value) ~> Value
   guarantee: True
-op "mood.neg" : (Value * Value) -> Value
+op "mood.neg" : (Value * Value) ~> Value
   guarantee: True
-op "mood.cnd" : (Value * Value * Value) -> Value
+op "mood.cnd" : (Value * Value * Value) ~> Value
   guarantee: True
 handle "mood.ind" with rust_mood_ind
 handle "mood.int" with rust_mood_int
