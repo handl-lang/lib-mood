@@ -1,16 +1,16 @@
 # lib-mood
 
 `mood` — mood (mode-of-data) operations for the handl runtime: the
-`.hnl` interface (`src/index.hnl`, cap/op declarations) plus the Rust
-crate embedding it.
+`.hnl` documentation surface (`src/index.hnl`) plus the Rust crate
+providing the `Op` impls.
 
 ## Layout
 
 | path | role |
 | --- | --- |
-| `src/index.hnl` | the interface — cap/op declarations |
-| `src/lib.rs`, `src/ops.rs` | the Rust crate (`handl-plugin-lib-mood`-style embedding) |
-| `atoms.yaml` | atom declarations |
+| `src/index.hnl` | the interface — documentation surface; atom spec in `atoms.yaml` |
+| `src/lib.rs`, `src/ops.rs` | the Rust crate (`handl-lib-mood`) — `Op` impls + `mood_op_registry()` |
+| `atoms.yaml` | atom spec (P-013/T-151) |
 | `Cargo.toml`, `xtask/` | crate manifest + `cargo xtask` gate |
 | `pkg.hnl` | package manifest — `modules: ["mood"]` |
 | `scripts/hnl-gate.sh`, `workflows/gate.yaml` | the hnl gate / bupha entry |
@@ -19,8 +19,9 @@ crate embedding it.
 
 - Mood ops: ind/int/norm/pot/neg/cnd projection, intersection,
   normalization and fallback (see `pkg.hnl` description).
-- Transitional layout: implementations are native Rust handls in
-  `plugin-lib-utils`.
+- Spec-driven layout: `atoms.yaml` is the spec; the `Op` impls live
+  in this crate (`src/ops.rs`) and resolve via the host's
+  `mood_impls()` table (`plugin-lib-stdlib` `ops/kernel_impls.rs`).
 
 ## Verification
 
