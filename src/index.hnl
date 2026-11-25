@@ -1,19 +1,18 @@
 --- mood -- mood (mode-of-data) operations for the handl runtime.
 ---
---- Single source of truth for the `mood` stdlib interface: 6 functions
+--- Documentation surface for the `mood` module: 6 functions
 --- covering projection, intersection, normalization, potential extraction,
---- complement, and conditional fallback. The Rust bridge in
---- `plugin-lib-utils` loads this file via `include_str!`, parses the `cap`
---- declarations for the plugin capability surface, and registers the Rust
---- handls (handlers) in an `OpRegistry` that dispatches each `op` to its
---- native Rust impl.
+--- complement, and conditional fallback. The atom spec lives in
+--- `atoms.yaml` (P-013/T-151) — name/sig/impl per op — and the Rust `Op`
+--- impls are in `src/ops.rs`; the host's spec-driven `mood_impls()` table
+--- (`plugin-lib-stdlib` `ops/kernel_impls.rs`, adapting this crate's `pub`
+--- impls) is what the `mood` `ModuleSpec` consumes.
+--- `mood_op_registry()` stays for consumers that still use it directly.
 ---
 --- All 6 functions are FFI atoms (they use `as_kind`, `project`,
 --- `complement`, `matches`, `ok_result`, and `err_result` from
 --- `crate::shared` and cannot be expressed as pure handl arrows without
---- losing the exact error messages the tests rely on). The `op`/`handl`
---- declaration form (ADR-0077 Phase 2) declares the interface; the Rust
---- `Function` impls in `ops.rs` provide the logic.
+--- losing the exact error messages the tests rely on).
 ---
 --- ## Capability declarations (ADR-0077 Phase 4)
 --- mood.ind -- strict projection: extract the matching component or error.
