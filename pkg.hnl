@@ -2,6 +2,7 @@
 -- the handl runtime. Transitional layout: the interface is
 -- `src/index.hnl` (cap/op declarations); implementations are native
 -- Rust handls in `plugin-lib-utils`.
+-- test_coverage "none": doc-only surface — mood.* impls are native Rust handls (plugin-lib-utils).
 {
   modules: ["mood"],
   name: "mood",
@@ -9,4 +10,5 @@
   license: "MIT",
   keywords: ["mood", "mode-of-data", "projection", "stdlib", "handl"],
   homepage: "https://github.com/handl-lang/lib-mood",
+  test_coverage: "none",
 }
